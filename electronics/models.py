@@ -13,8 +13,8 @@ class Category(models.Model):
 
 class Product(models.Model):
     title = models.CharField(max_length=255)
-    about = models.TextField(max_length=True, blank=True)
-    photo = models.ImageField()
+    about = models.TextField(max_length=255, null=True, blank=True)
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", null=True, blank=True)
     price = models.IntegerField(blank=True, null=True)
     slug = models.SlugField(max_length=255, unique=True, db_index=True, blank='True', verbose_name="URL")
 
